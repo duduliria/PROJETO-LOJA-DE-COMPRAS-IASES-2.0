@@ -9,7 +9,7 @@ const mysql = require('mysql2/promise');
 const configuracaoBanco = {
     host: 'localhost',           // Endereço do servidor (localhost = seu computador)
     user: 'root',                // Seu usuário do MySQL (geralmente é 'root')
-    password: '',                // Sua senha do MySQL (deixe vazio se não tiver)
+    password: 'root',                // Sua senha do MySQL (deixe vazio se não tiver)
     database: 'loja_compras',    // Nome do banco de dados
     port: 3306                   // Porta padrão do MySQL
 };

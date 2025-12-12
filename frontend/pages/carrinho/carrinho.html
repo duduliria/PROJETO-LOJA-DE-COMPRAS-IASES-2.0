@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Carrinho de Compras</title>
+    <link rel="stylesheet" href="../../style.css" />
+    <link rel="stylesheet" href="carrinho.css" />
+</head>
+
+<body class="tema-claro">
+
+    <button class="botao-tema" id="botaoTema" aria-label="Alternar tema">
+        <span class="icone-tema"></span>
+    </button>
+
+    <header class="cabecalho-interno">
+        <div class="container">
+            <div class="topo-acoes">
+                <a href="../catalogo/catalogo.html" class="botao botao-secundario botao-voltar">
+                    Continuar Comprando
+                </a>
+            </div>
+            <h1 class="titulo-pagina">Carrinho de Compras</h1>
+            <p class="subtitulo-pagina">Revise seus produtos antes de finalizar</p>
+        </div>
+    </header>
+
+    <div class="linha-divisoria"></div>
+
+    <main class="secao-carrinho">
+        <div class="container">
+            <div class="carrinho-layout">
+                <!-- Lista de produtos -->
+                <section class="carrinho-produtos">
+                    <div class="carrinho-cabecalho">
+                        <h2>Produtos no Carrinho</h2>
+                        <button class="botao botao-limpar" id="btnLimparCarrinho">
+                            Limpar Carrinho
+                        </button>
+                    </div>
+                    
+                    <div class="lista-produtos" id="listaProdutos">
+                        <p class="mensagem-carregando">Carregando carrinho...</p>
+                    </div>
+                </section>
+
+                <!-- Resumo e Pagamento -->
+                <aside class="carrinho-resumo">
+                    <div class="resumo-card">
+                        <h3>Resumo do Pedido</h3>
+                        
+                        <div class="resumo-linha">
+                            <span>Subtotal</span>
+                            <span id="subtotal">R$ 0,00</span>
+                        </div>
+                        
+                        <div class="resumo-linha">
+                            <span>Frete</span>
+                            <span id="frete" class="frete-gratis">Grátis</span>
+                        </div>
+                        
+                        <div class="resumo-linha total">
+                            <span>Total</span>
+                            <span id="total">R$ 0,00</span>
+                        </div>
+                    </div>
+
+                    <div class="pagamento-card">
+                        <h3>Forma de Pagamento</h3>
+                        
+                        <div class="opcoes-pagamento">
+                            <label class="opcao-pagamento">
+                                <input type="radio" name="pagamento" value="pix" checked>
+                                <div class="opcao-conteudo">
+                                    <span class="opcao-icone">PIX</span>
+                                    <div class="opcao-info">
+                                        <span class="opcao-nome">PIX</span>
+                                        <span class="opcao-descricao">Aprovação instantânea</span>
+                                    </div>
+                                    <span class="opcao-desconto">10% OFF</span>
+                                </div>
+                            </label>
+
+                            <label class="opcao-pagamento">
+                                <input type="radio" name="pagamento" value="credito">
+                                <div class="opcao-conteudo">
+                                    <span class="opcao-icone">CC</span>
+                                    <div class="opcao-info">
+                                        <span class="opcao-nome">Cartão de Crédito</span>
+                                        <span class="opcao-descricao">Até 12x sem juros</span>
+                                    </div>
+                                </div>
+                            </label>
+
+                            <label class="opcao-pagamento">
+                                <input type="radio" name="pagamento" value="debito">
+                                <div class="opcao-conteudo">
+                                    <span class="opcao-icone">CD</span>
+                                    <div class="opcao-info">
+                                        <span class="opcao-nome">Cartão de Débito</span>
+                                        <span class="opcao-descricao">Débito na hora</span>
+                                    </div>
+                                    <span class="opcao-desconto">5% OFF</span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <button class="botao botao-primario botao-finalizar" id="btnFinalizar" disabled>
+                        Finalizar Compra
+                    </button>
+                </aside>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal de Sucesso -->
+    <div class="modal-sucesso" id="modalSucesso">
+        <div class="modal-sucesso-caixa">
+            <div class="sucesso-icone"></div>
+            <h2>Pedido Realizado!</h2>
+            <p>Seu pedido foi finalizado com sucesso.</p>
+            <div class="pedido-info" id="pedidoInfo"></div>
+            <a href="../catalogo/catalogo.html" class="botao botao-primario">
+                Continuar Comprando
+            </a>
+        </div>
+    </div>
+
+    <footer class="rodape">
+        <div class="container">
+            <p>&copy; 2025 Loja de Compras - Sistema de Gerenciamento de Produtos</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../../script.js"></script>
+    <script src="carrinho.js"></script>
+</body>
+
+</html>

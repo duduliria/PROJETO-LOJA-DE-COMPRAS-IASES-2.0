@@ -37,9 +37,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function atualizarIcone(tema) {
     if (tema === "tema-claro") {
-      iconeTema.textContent = "🌙"
+      iconeTema.textContent = "●"
     } else {
-      iconeTema.textContent = "☀️"
+      iconeTema.textContent = "○"
     }
   }
 });

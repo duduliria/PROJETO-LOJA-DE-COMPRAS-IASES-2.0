@@ -40,14 +40,14 @@ async function carregarProdutosCatalogo() {
                     <div class="acoes-catalogo">
                         ${listaImagens ? `
                         <a href="#" class="botao botao-secundario botao-detalhes" data-imagens="${listaImagens}">
-                            <span class="icone">👁️</span> Ver
+                            Ver Fotos
                         </a>` : ''}
                         <button class="botao botao-primario botao-adicionar-carrinho"
                             data-id="${produto.id}"
                             data-nome="${produto.nome}"
                             data-preco="${produto.preco}"
                             data-imagem="${imagemPrincipal}">
-                            <span class="icone">🛒</span> Adicionar
+                            Adicionar
                         </button>
                     </div>
                 </div>
@@ -83,21 +83,23 @@ async function carregarProdutosCatalogo() {
 
   function mostrarNaThumb(index, imagens) {
       if (imagens[index]){
-        thumb.style.backgroundImage = `url(${imagens[index]})`
+        thumb.style.backgroundImage = `url('${imagens[index]}')`
       }
   }
 
   window.abrirModalComImagens = function(imagens) {
+    console.log('Imagens recebidas:', imagens);
     if (!Array.isArray(imagens) || imagens.length === 0) return
 
-    thumb.style.backgroundImage = `url(${imagens[0]})`
+    thumb.style.backgroundImage = `url('${imagens[0]}')`
 
     listaItens.innerHTML = ""
     imagens.forEach((src, index) => {
+      console.log('Carregando imagem:', src);
       const item = document.createElement("button")
       item.type = "button"
       item.className = "item-card"
-      item.style.backgroundImage = `url(${src})`
+      item.style.backgroundImage = `url('${src}')`
       if (index === 0) item.classList.add("active")
 
         item.addEventListener("mouseover", () => {
@@ -146,10 +148,8 @@ function configurarBotoesCarrinho() {
     document.querySelectorAll('.botao-adicionar-carrinho').forEach(botao => {
         botao.addEventListener('click', async () => {
             const produto = {
-                produtoId: parseInt(botao.dataset.id),
-                nome: botao.dataset.nome,
-                preco: parseFloat(botao.dataset.preco),
-                imagem: botao.dataset.imagem
+                produto_id: parseInt(botao.dataset.id),
+                quantidade: 1
             };
             await adicionarAoCarrinho(produto);
         });
@@ -158,7 +158,7 @@ function configurarBotoesCarrinho() {
 
 async function adicionarAoCarrinho(produto) {
     try {
-        const resposta = await fetch(`${API_URL}/carrinho/adicionar`, {
+        const resposta = await fetch(`${API_URL}/carrinho`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(produto)
@@ -167,9 +167,13 @@ async function adicionarAoCarrinho(produto) {
         if (resposta.ok) {
             alert('Produto adicionado ao carrinho!');
             atualizarContadorCarrinho();
+        } else {
+            const erro = await resposta.json();
+            alert('Erro: ' + erro.erro);
         }
     } catch (erro) {
         console.error('Erro ao adicionar ao carrinho:', erro);
+        alert('Erro ao conectar com o servidor');
     }
 }
 

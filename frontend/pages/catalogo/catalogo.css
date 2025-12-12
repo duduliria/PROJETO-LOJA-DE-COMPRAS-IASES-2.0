@@ -296,10 +296,13 @@ body.tema-escuro .produto-descricao {
     width: 84px;
     height: 84px;
     border-radius: 10px;
-    border: 2px solid transparent;
+    border: 2px solid #e0e0e0;
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
+    background-color: #f0f0f0;
     cursor: pointer;
+    flex-shrink: 0;
 }
 
 .item-card.active {
@@ -314,8 +317,9 @@ body.tema-escuro .produto-descricao {
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
-    background-color: #11182708;
+    background-color: #f3f4f6;
     min-height: 420px;
+    width: 100%;
 }
 
 
