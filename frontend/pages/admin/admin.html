@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Painel Administrativo</title>
+  <link rel="stylesheet" href="../../style.css" />
+  <link rel="stylesheet" href="admin.css" />
+</head>
+
+<body class="tema-claro">
+
+
+  <button class="botao-tema" id="botaoTema" aria-label="Alternar Tema">
+    <span class="icone-tema">🌙</span>
+  </button>
+
+  <header class="cabecalho-interno">
+    <div class="container">
+      <div class="topo-admin">
+        <h1 class="titulo-pagina">Painel Administrativo</h1>
+        <button type="button" class="botao botao-primario botao-novo-produto" id="abrirNovoProduto">
+          <span class="icone">➕</span> Novo produto
+
+        </button>
+      </div>
+      <p class="subtitulo-pagina">Gerencie seus produtos</p>
+      <a class="botao-inicial" href="/frontend/index.html">Voltar para pagina Inicial</a>
+    </div>
+  </header>
+
+  <div class="modal" id="modalNovoProduto" aria-hidden="true">
+    <div class="modal-caixa modal-novo-produto" role="dialog" aria-modal="true" aria-label="Novo Produto">
+      <button class="modal-fechar novo-produto-fechar" type="button" aria-label="Fechar"
+        id="fecharNovoProduto"></button>
+      <form class="form-novo-produto" id="formProduto" autocomplete="off" enctype="multipart/form-data">
+        <h2 class="titulo-modal" id="tituloModal">Novo Produto</h2>
+        <input type="hidden" id="produtoId" value="">
+        <div class="grupo-form">
+          <label for="nomeProduto">Nome do Produto *</label>
+          <input id="nomeProduto" type="text" class="input-modal input-grande" placeholder="Ex: Notebook Gamer"
+            required />
+        </div>
+        <div class="grupo-form">
+          <label for="precoProduto">Preço (R$) *</label>
+          <input id="precoProduto" type="number" class="input-modal input-grande" placeholder="Ex: 4999.99" step="0.01"
+            required />
+        </div>
+        <div class="grupo-form">
+          <label for="descProduto">Descrição *</label>
+          <textarea id="descProduto" class="input-modal input-grande" placeholder="Descreva o produto ... "
+            required></textarea>
+        </div>
+
+        <div class="grupo-form">
+          <label for="imagensProduto">Imagens do Produto</label>
+          <input type="file" id="imagensProduto" class="input-modal input-grande" accept="image/*" multiple />
+          <span class="dica-imagem">Selecione uma ou mais imagens (JPG, PNG, GIF, WEBP)</span>
+        </div>
+        
+        <div class="preview-imagens" id="previewImagens"></div>
+        
+        <div class="acoes-modal">
+          <button type="button" class="botao botao-cancelar botao-grande" id="cancelarProduto">Cancelar</button>
+          <button type="submit" class="botao botao-primario botao-grande" id="btnSubmit">Criar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="linha-divisoria"></div>
+
+  <main class="secao-admin">
+    <div class="container">
+      <div class="grade-produtos" id="gradeProdutos">
+        <p class="mensagem-carregando">Carregando produtos...</p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="rodape">
+    <div class="container">
+      <p>&copy; 2025 Painel Admin - Sistema de Gerenciamento de Produtos</p>
+    </div>
+  </footer>
+
+  <div class="modal" aria-hidden="true">
+    <div class="modal-caixa" role="dialog" aria-modal="true" aria-label="Galeria de imagens do produto">
+      <button class="modal-fechar" type="button" aria-label="Fechar">
+        x
+      </button>
+      <div class="galeria-modal">
+        <aside class="lista-itens" id="listaItens"></aside>
+        <div class="thumb" id="thumb"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../../script.js"></script>
+  <script src="admin.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,474 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+    transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+body.tema-claro {
+    background-color: #f5f5f5;
+    color: #2c2c2c;
+
+}
+
+body.tema-claro .cabecalho {
+    background-color: #f5f5f5;
+
+}
+
+body.tema-claro .titulo-principal {
+    color: #1a1a1a;
+}
+
+body.tema-claro .subtitulo {
+    color: #666666;
+}
+
+body.tema-claro .botao-secundario {
+    color: #2c2c2c;
+    border-color: #d0d0d0;
+}
+
+body.tema-claro .botao-secundario:hover {
+    background-color: #e8e8e8;
+    border-color: #b0b0b0;
+}
+
+body.tema-claro .secao-funcionalidades {
+    background-color: #f5f5f5;
+}
+
+body.tema-claro .titulo-secao {
+    color: #1a1a1a;
+}
+
+body.tema-claro .card {
+    background-color: #ffffff;
+    border-color: #e0e0e0;
+}
+
+body.tema-claro .card:hover {
+    border-color: #c0c0c0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+body.tema-claro .titulo-card {
+    color: #1a1a1a;
+}
+
+body.tema-claro .descricao-card {
+    color: #666666;
+}
+
+body.tema-claro .secao-tecnologias {
+    background-color: #ebebeb;
+}
+
+body.tema-claro .nome-tecnologia {
+    color: #1a1a1a;
+}
+
+body.tema-claro .desc-tecnologia {
+    color: #888888;
+}
+
+body.tema-claro .secao-cta {
+    background-color: #f5f5f5;
+}
+
+body.tema-claro .texto-cta {
+    color: #666666;
+}
+
+body.tema-claro .rodape {
+    background-color: #ebebeb;
+    border-top-color: #e0e0e0;
+}
+
+body.tema-claro .rodape p {
+    color: #888888;
+}
+
+body.tema-escuro {
+    background-color: #0a0a0a;
+    color: #e5e5e5;
+
+}
+
+body.tema-escuro .cabecalho {
+    background-color: #0a0a0a;
+}
+
+body.tema-escuro .titulo-principal {
+    color: #ffffff;
+}
+
+body.tema-escuro .subtitulo {
+    color: #a0a0a0;
+}
+
+body.tema-escuro .botao-secundario {
+    color: #e5e5e5;
+    border-color: #404040;
+
+}
+
+body.tema-escuro .botao-secundario:hover {
+    background-color: #1a1a1a;
+    border-color: #606060;
+}
+
+body.tema-escuro .secao-funcionalidades {
+    background-color: #0a0a0a;
+}
+
+body.tema-escuro .titulo-secao {
+    color: #ffffff;
+
+}
+
+body.tema-escuro .card {
+    background-color: #141414;
+    border-color: #262626;
+
+}
+
+body.tema-escuro .card:hover {
+    border-color: #404040;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+body.tema-escuro .titulo-card {
+    color: #ffffff;
+}
+
+body.tema-escuro .descricao-card {
+    color: #a0a0a0;
+}
+
+body.tema-escuro .secao-tecnologias {
+    background-color: #000000;
+}
+
+body.tema-escuro .nome-tecnologia {
+    color: #ffffff;
+}
+
+body.tema-escuro .desc-tecnologia {
+    color: #737373;
+}
+
+body.tema-escuro .secao-cta {
+    background-color: #0a0a0a;
+}
+
+body.tema-escuro .texto-cta {
+    color: #a0a0a0;
+}
+
+body.tema-escuro .rodape {
+    background-color: #000000;
+    border-top-color: #1a1a1a;
+}
+
+body.tema-escuro .rodape p {
+    color: #737373;
+}
+
+.botao-tema {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: none;
+    background-color: #2563eb;
+    color: #ffffff;
+    font-size: 1.4rem;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
+    transition: all 0.3s ease;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.botao-tema:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.6);
+}
+
+.botao-tema:active {
+    transform: scale(0.95);
+}
+
+
+.icone-tema {
+    display: inline-block;
+    transition: transform 0.4s ease;
+}
+
+.botao-tema:hover .icone-tema {
+    transform: rotate(20deg);
+}
+
+.cabecalho {
+    padding: 80px 0 60px 0;
+    text-align: center;
+    transition: background-color 0.4s ease;
+}
+
+
+.titulo-principal {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    letter-spacing: -0.5px;
+    transition: color 0.4s ease;
+}
+
+
+.subtitulo {
+    font-size: 1rem;
+    margin-bottom: 40px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    transition: color 0.4s ease;
+}
+
+.botoes-navegacao {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.botao {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: none;
+}
+
+.botao .icone {
+    font-size: 1.2rem;
+}
+
+
+.botao-primario {
+    background-color: #2563eb;
+    color: #ffffff;
+}
+
+.botao-primario:hover {
+    background-color: #1d4ed8;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
+}
+
+.botao-secundario {
+    background-color: transparent;
+    transition: all 0.3s ease;
+}
+
+.botao-secundario:hover {
+    transform: translateY(-2px);
+}
+
+.secao-funcionalidades {
+    padding: 80px 0;
+    transition: background-color 0.4s ease;
+}
+
+
+.titulo-secao {
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 20px;
+    transition: color 0.4s ease;
+}
+
+/* Grade de 4 colunas para os cards */
+.grade-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin: 0 auto;
+}
+
+
+.card {
+    border-radius: 12px;
+    padding: 35px 25px;
+    text-align: center;
+    transition: all 0.4s ease;
+    border: 1px solid;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.icone-card {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 20px auto;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+}
+
+.icone-azul {
+    background-color: rgba(37, 99, 235, 0.15);
+    color: #22c55e;
+}
+
+.titulo-card {
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+    transition: color 0.4s ease;
+}
+
+.descricao-card {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    transition: color 0.4s ease;
+}
+
+.secao-tecnologias {
+    padding: 80px 0;
+    transition: background-color 0.4s ease;
+}
+
+/* Grade de tecnologias */
+.grade-tecnologias {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
+    text-align: center;
+}
+
+/* Item de tecnologia */
+.tecnologia {
+    padding: 20px;
+}
+
+/* Nome da tecnologia */
+.nome-tecnologia {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    transition: color 0.4s ease;
+}
+
+/* Descrição da tecnologia */
+.desc-tecnologia {
+    font-size: 0.9rem;
+    transition: color 0.4s ease;
+}
+
+.secao-cta {
+    padding: 80px 0;
+    text-align: center;
+    transition: background-color 0.4s ease;
+}
+
+.texto-cta {
+    font-size: 0.05rem;
+    margin-bottom: 30px;
+    transition: color 0.4s ease;
+}
+
+.rodape {
+    padding: 30px 0;
+    text-align: center;
+    border-top: 1px solid;
+    transition: all 0.4s ease;
+}
+
+.rodape p {
+    font-size: 0.9rem;
+    transition: all 0.4s ease;
+}
+
+
+@media (max-width: 768px) {
+    .titulo-principal {
+        font-size: 2rem;
+
+    }
+
+    .subtitulo {
+        font-size: 0.95rem;
+
+    }
+
+    .titulo-secao {
+        font-size: 1.6rem;
+    }
+
+    .grade-cards {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .grade-tecnologias {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+
+    .botoes-navegacao {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .botao {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .cabecalho {
+        padding: 50px 0 40px 0;
+    }
+
+    .secao-funcionalidades,
+    .secao-tecnologias,
+    .secao-cta {
+        padding: 50px 0;
+    }
+
+    .titulo-principal {
+        font-size: 1.6rem;
+    }
+
+    .grade-tecnologias {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Catálogo de Produtos</title>
+  <link rel="stylesheet" href="../../style.css" />
+  <link rel="stylesheet" href="catalogo.css" />
+</head>
+
+<body class="tema-claro">
+
+  <button class="botao-tema" id="botaoTema" aria-label="Alternar tema">
+    <span class="icone-tema">🌙</span>
+  </button>
+
+
+  <header class="cabecalho-interno">
+    <div class="container">
+      <div class="topo-acoes">
+        <a href="../../index.html" class="botao botao-secundario botao-voltar">
+          <span class="icone">⬅️</span>
+          Voltar
+        </a>
+        <a href="../carrinho/carrinho.html" class="botao botao-primario botao-carrinho">
+          <span class="icone">🛒</span>
+          Carrinho (<span id="contadorCarrinho">0</span>)
+        </a>
+      </div>
+      <h1 class="titulo-pagina">Catálogo de Produtos</h1>
+      <p class="subtitulo-pagina">Confira nossos produtos disponíveis</p>
+    </div>
+  </header>
+
+  <div class="linha-divisoria"></div>
+
+  <main class="secao-catalogo">
+    <div class="container">
+      <div class="grade-produtos" id="gradeProdutos">
+        <p class="mensagem-carregando">Carregando produtos...</p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="rodape">
+    <div class="container">
+      <p>&copy; 2025 Catálogo - Sistema de Gerenciamento de Produtos</p>
+    </div>
+  </footer>
+
+
+
+  <div class="modal" aria-hidden="true">
+    <div class="modal-caixa" 
+    role="dialog" aria-modal="true" 
+    aria-label="Galeria de imagens do produto"
+    >
+     <button class="modal-fechar" type="button" aria-label="Fechar">
+      x
+      </button>
+      <div class="galeria-modal">
+        <aside class="lista-itens" id="listaItens">
+
+        </aside>
+        <div class="thumb" id="thumb"></div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <!-- Scripts -->
+  <script src="../../script.js"></script> 
+  <script src="catalogo.js"></script>
+</body>
+
+</html>
