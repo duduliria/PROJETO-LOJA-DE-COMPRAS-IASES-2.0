@@ -6,7 +6,7 @@ const multer = require('multer');
 const path = require('path');
 
 // Pasta onde as imagens serão salvas
-const pastaImagens = path.join(__dirname, '../../frontend/images/produtos');
+const pastaImagens = path.join(__dirname, '../../frontend/images');
 
 // Configuração do armazenamento
 const armazenamento = multer.diskStorage({

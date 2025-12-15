@@ -96,7 +96,7 @@ async function criar(requisicao, resposta) {
         // Se tiver imagens, salva no banco
         if (arquivos && arquivos.length > 0) {
             for (let arquivo of arquivos) {
-                const caminho = `/images/produtos/${arquivo.filename}`;
+                const caminho = `/images/${arquivo.filename}`;
                 await conexao.query(
                     'INSERT INTO imagens_produtos (produto_id, caminho) VALUES (?, ?)',
                     [produtoId, caminho]
@@ -163,7 +163,7 @@ async function atualizar(requisicao, resposta) {
         // Adiciona novas imagens
         if (arquivos && arquivos.length > 0) {
             for (let arquivo of arquivos) {
-                const caminho = `/images/produtos/${arquivo.filename}`;
+                const caminho = `/images/${arquivo.filename}`;
                 await conexao.query(
                     'INSERT INTO imagens_produtos (produto_id, caminho) VALUES (?, ?)',
                     [id, caminho]

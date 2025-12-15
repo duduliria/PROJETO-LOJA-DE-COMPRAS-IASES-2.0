@@ -39,14 +39,12 @@ async function carregarProdutos() {
                     <p class="produto-descricao">${produto.descricao}</p>
                     <div class="acoes-produto">
                         ${listaImagens ? `
-                        <button class="botao botao-secundario botao-ver" data-imagens="${listaImagens}">
-                            Ver Fotos
                         </button>` : ''}
                         <button class="botao botao-secundario botao-editar" data-id="${produto.id}">
                             Editar
                         </button>
                         <button class="botao botao-excluir" title="Excluir" data-id="${produto.id}">
-                            X
+                            Excluir
                         </button>
                     </div>
                 </div>

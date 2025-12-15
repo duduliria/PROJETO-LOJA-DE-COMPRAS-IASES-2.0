@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    list-style: none;
 
 }
 
@@ -37,8 +38,9 @@ body.tema-claro .subtitulo {
 }
 
 body.tema-claro .botao-secundario {
-    color: #2c2c2c;
+    color: #ebdfdf;
     border-color: #d0d0d0;
+    background-color: #bdbdbd;
 }
 
 body.tema-claro .botao-secundario:hover {
@@ -122,12 +124,14 @@ body.tema-escuro .subtitulo {
 body.tema-escuro .botao-secundario {
     color: #e5e5e5;
     border-color: #404040;
+    background-color: #262931;
 
 }
 
 body.tema-escuro .botao-secundario:hover {
     background-color: #1a1a1a;
     border-color: #606060;
+
 }
 
 body.tema-escuro .secao-funcionalidades {

@@ -1,18 +1,8 @@
-// ====================================
-// CONTROLADOR DO CARRINHO
-// ====================================
-// Aqui ficam as funções que processam as requisições
-// relacionadas ao carrinho de compras
-
 const { conexao } = require('../banco/conexao');
 
-// ====================================
-// LISTAR ITENS DO CARRINHO
-// ====================================
-// GET /api/carrinho
 async function listarItens(requisicao, resposta) {
     try {
-        // Busca todos os itens do carrinho com informações do produto
+
         const [itens] = await conexao.query(`
             SELECT 
                 carrinho.id,
@@ -43,10 +33,6 @@ async function listarItens(requisicao, resposta) {
     }
 }
 
-// ====================================
-// ADICIONAR ITEM AO CARRINHO
-// ====================================
-// POST /api/carrinho
 async function adicionar(requisicao, resposta) {
     try {
         const { produto_id, quantidade } = requisicao.body;

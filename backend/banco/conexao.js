@@ -24,13 +24,7 @@ async function testarConexao() {
         console.log('✅ Conectado ao banco de dados MySQL!');
         conectado.release(); // Libera a conexão
     } catch (erro) {
-        console.log('❌ Erro ao conectar no banco de dados:');
-        console.log(erro.message);
-        console.log('');
-        console.log('📝 Dicas:');
         console.log('1. Verifique se o MySQL está rodando');
-        console.log('2. Verifique usuário e senha no arquivo conexao.js');
-        console.log('3. Execute o script criar_banco.sql no MySQL');
     }
 }
 

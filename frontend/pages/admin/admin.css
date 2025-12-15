@@ -250,6 +250,7 @@ body.tema-escuro .produto-descricao{
     flex-direction: column;
     gap: 0;
     padding: 0 32px 32px 32px;
+
 }
 
 .titulo-modal{
@@ -364,6 +365,20 @@ margin-bottom: 2px;
 
 body.tema-escuro .botao-add-imagem.botao-add-grande:hover{
     background: #1e293b;
+}
+
+body.tema-escuro .form-novo-produto{
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    padding: 0 32px 32px 32px;
+    background: #111;
+    color: white;
+
+}
+
+body.tema-escuro .grupo-form label{
+    color: white;
 }
 
 body.tema-escuro .dica-imagem{

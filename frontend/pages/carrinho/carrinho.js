@@ -1,24 +1,14 @@
-// ====================================
-// CARRINHO DE COMPRAS - JAVASCRIPT
-// ====================================
 
 const API_URL = 'http://localhost:3000/api';
 
-// Estado do carrinho
 let carrinho = [];
 let formaPagamento = 'pix';
 
-// ====================================
-// INICIALIZAÇÃO
-// ====================================
 document.addEventListener('DOMContentLoaded', () => {
     carregarCarrinho();
     configurarEventos();
 });
 
-// ====================================
-// CARREGAR CARRINHO DA API
-// ====================================
 async function carregarCarrinho() {
     const listaProdutos = document.getElementById('listaProdutos');
     
@@ -42,9 +32,7 @@ async function carregarCarrinho() {
     }
 }
 
-// ====================================
-// RENDERIZAR ITENS DO CARRINHO
-// ====================================
+
 function renderizarCarrinho() {
     const listaProdutos = document.getElementById('listaProdutos');
     
@@ -97,14 +85,12 @@ function renderizarCarrinho() {
         `;
     }).join('');
     
-    // Adicionar eventos aos botões
+
     configurarBotoesQuantidade();
     configurarBotoesRemover();
 }
 
-// ====================================
-// ATUALIZAR RESUMO DO PEDIDO
-// ====================================
+
 function atualizarResumo() {
     const subtotalEl = document.getElementById('subtotal');
     const totalEl = document.getElementById('total');
@@ -117,19 +103,19 @@ function atualizarResumo() {
     let total = subtotal;
     let desconto = 0;
     
-    // Aplicar desconto baseado na forma de pagamento
+
     if (formaPagamento === 'pix') {
-        desconto = subtotal * 0.10; // 10% de desconto
+        desconto = subtotal * 0.10; 
         total = subtotal - desconto;
     } else if (formaPagamento === 'debito') {
-        desconto = subtotal * 0.05; // 5% de desconto
+        desconto = subtotal * 0.05; 
         total = subtotal - desconto;
     }
     
     subtotalEl.textContent = `R$ ${subtotal.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}`;
     totalEl.textContent = `R$ ${total.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}`;
     
-    // Atualizar opções de parcelas
+
     if (parcelasSelect) {
         parcelasSelect.innerHTML = '';
         for (let i = 1; i <= 12; i++) {
@@ -142,11 +128,9 @@ function atualizarResumo() {
     }
 }
 
-// ====================================
-// CONFIGURAR EVENTOS
-// ====================================
+
 function configurarEventos() {
-    // Forma de pagamento
+
     document.querySelectorAll('input[name="pagamento"]').forEach(radio => {
         radio.addEventListener('change', (e) => {
             formaPagamento = e.target.value;
@@ -155,18 +139,16 @@ function configurarEventos() {
         });
     });
     
-    // Botão limpar carrinho
+
     document.getElementById('btnLimparCarrinho').addEventListener('click', limparCarrinho);
     
-    // Botão finalizar compra
+
     document.getElementById('btnFinalizar').addEventListener('click', finalizarCompra);
 }
 
-// ====================================
-// CONFIGURAR BOTÕES DE QUANTIDADE
-// ====================================
+
 function configurarBotoesQuantidade() {
-    // Botões de diminuir
+
     document.querySelectorAll('.btn-diminuir').forEach(btn => {
         btn.addEventListener('click', async () => {
             const id = btn.dataset.id;
@@ -174,7 +156,7 @@ function configurarBotoesQuantidade() {
         });
     });
     
-    // Botões de aumentar
+
     document.querySelectorAll('.btn-aumentar').forEach(btn => {
         btn.addEventListener('click', async () => {
             const id = btn.dataset.id;
@@ -183,9 +165,7 @@ function configurarBotoesQuantidade() {
     });
 }
 
-// ====================================
-// CONFIGURAR BOTÕES DE REMOVER
-// ====================================
+
 function configurarBotoesRemover() {
     document.querySelectorAll('.btn-remover').forEach(btn => {
         btn.addEventListener('click', async () => {
@@ -195,9 +175,7 @@ function configurarBotoesRemover() {
     });
 }
 
-// ====================================
-// ATUALIZAR QUANTIDADE
-// ====================================
+
 async function atualizarQuantidade(id, delta) {
     const item = carrinho.find(i => i.id == id);
     if (!item) return;
@@ -224,9 +202,8 @@ async function atualizarQuantidade(id, delta) {
     }
 }
 
-// ====================================
-// REMOVER ITEM DO CARRINHO
-// ====================================
+
+
 async function removerItem(id) {
     if (!confirm('Deseja remover este item do carrinho?')) return;
     
@@ -246,9 +223,7 @@ async function removerItem(id) {
     }
 }
 
-// ====================================
-// LIMPAR CARRINHO
-// ====================================
+
 async function limparCarrinho() {
     if (carrinho.length === 0) {
         alert('O carrinho já está vazio!');
@@ -273,17 +248,13 @@ async function limparCarrinho() {
     }
 }
 
-// ====================================
-// VERIFICAR BOTÃO FINALIZAR
-// ====================================
+
 function verificarBotaoFinalizar() {
     const btnFinalizar = document.getElementById('btnFinalizar');
     btnFinalizar.disabled = carrinho.length === 0;
 }
 
-// ====================================
-// FINALIZAR COMPRA
-// ====================================
+
 async function finalizarCompra() {
     if (carrinho.length === 0) {
         alert('Seu carrinho está vazio!');
@@ -305,22 +276,21 @@ async function finalizarCompra() {
         total = subtotal - desconto;
     }
     
-    // Simular processamento
+
     const btnFinalizar = document.getElementById('btnFinalizar');
     btnFinalizar.disabled = true;
     btnFinalizar.innerHTML = 'Processando...';
     
-    // Aguardar 2 segundos (simulação)
+
     await new Promise(resolve => setTimeout(resolve, 2000));
     
-    // Limpar carrinho no servidor
+
     try {
         await fetch(`${API_URL}/carrinho`, { method: 'DELETE' });
     } catch (erro) {
         console.error('Erro ao limpar carrinho:', erro);
     }
-    
-    // Mostrar modal de sucesso
+  
     const modal = document.getElementById('modalSucesso');
     const pedidoInfo = document.getElementById('pedidoInfo');
     
@@ -347,7 +317,6 @@ async function finalizarCompra() {
     `;
     
     modal.classList.add('active');
-    
-    // Limpar estado local
+
     carrinho = [];
 }
